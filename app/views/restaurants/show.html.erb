@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1><%= @restaurant.name %></h1>
+    <%= link_to "Write a review", new_restaurant_review_path(@restaurant), class: "btn btn-outline-primary" %>
+  </div>
+
+  <div class="ms-3">
+    <div><small><%= @restaurant.address %></small></div>
+    <div><small><%= @restaurant.phone_number %></small></div>
+  </div>
+
+  <% unless @restaurant.reviews.empty? %>
+    <hr>
+    <div class="list-group">
+      <% @restaurant.reviews.each do |rev| %>
+        <div class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h3 class="mb-1"><%= rev.content %></h3>
+            <p class="mb-1"><%= rev.rating %> / 5 ⭐️</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <hr>
+
+  <%= link_to 'Back to "Restaurants"', restaurants_path, class: "btn btn-outline-primary" %>
+</div>

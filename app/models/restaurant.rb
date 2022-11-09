@@ -1,4 +1,5 @@
 class Restaurant < ApplicationRecord
+  # TODO add messages for validations!!!!!!!!!!!!!!
   validates :name, presence: true
   validates :address, presence: true
   validates :category, presence: true
